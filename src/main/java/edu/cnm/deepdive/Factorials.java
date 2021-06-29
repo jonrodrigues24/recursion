@@ -1,19 +1,22 @@
 package edu.cnm.deepdive;
 
+import java.math.BigInteger;
+
 public class Factorials {
 
+  public static BigInteger computeRecursive (BigInteger input) {
 
-  public static long computeRecursive (int n) {
+    BigInteger value = new BigInteger(String.valueOf(input));
+    long inputLong = (value.longValue());
+    BigInteger oneBI = new BigInteger("1");
 
-    long product = 0;
-
-    if (n < 0) {
+    if (inputLong < 0) {
 
       throw new IllegalArgumentException();
 
     }
 
-    return (n == 0) ? 1 : (n * computeRecursive(n - 1));
+    return (inputLong == 0) ? oneBI : (input.multiply(computeRecursive(value.subtract(oneBI))));
   }
 
 }
