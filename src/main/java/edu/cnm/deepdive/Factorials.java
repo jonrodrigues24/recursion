@@ -4,19 +4,15 @@ import java.math.BigInteger;
 
 public class Factorials {
 
-  public static BigInteger computeRecursive (BigInteger input) {
+  public static BigInteger computeRecursive (int input) {
 
-    BigInteger value = new BigInteger(String.valueOf(input));
-    long inputLong = (value.longValue());
-    BigInteger oneBI = new BigInteger("1");
-
-    if (inputLong < 0) {
+    if (input < 0) {
 
       throw new IllegalArgumentException();
 
     }
 
-    return (inputLong == 0) ? oneBI : (input.multiply(computeRecursive(value.subtract(oneBI))));
+    return (input == 0) ? BigInteger.ONE : BigInteger.valueOf(input).multiply(computeRecursive(input -1));
   }
 
 }

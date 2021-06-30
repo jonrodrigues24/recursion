@@ -12,10 +12,7 @@ public class Palindromes {
   }
 
   public static boolean checkDenormalized(String input) {
-    String Punctuation = String.valueOf(input.replaceAll("\\p{Punct}", "")); //help on this
-    String Formatted = String.valueOf(Punctuation.toLowerCase(Locale.ROOT).trim());
-
-    return checkRecursive(Formatted);
+    return checkRecursive(input.replaceAll("\\W|_", "").toLowerCase());
   }
 
 
